@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace ProgrammingBasics_DS
 {
@@ -126,22 +125,24 @@ namespace ProgrammingBasics_DS
             int i = 0, j = 0;
             while (i < list.Count || j < p.list.Count)
             {
-                if (list[i].Exp == p.list[j].Exp)
+                if (i < list.Count && j < p.list.Count && list[i].Exp == p.list[j].Exp)
                 {
                     res.AddTerm(new Term(list[i].Co, list[i].Exp, VariableName));
                     res.list[res.list.Count - 1].Add2Me(p.list[j]);
                     i++; j++;
                 }
-                else if (list[i].Exp > p.list[j].Exp)
+                else if (j >= p.list.Count && list[i].Exp > p.list[j].Exp)
                 {
                     res.AddTerm(new Term(list[i].Co, list[i].Exp, VariableName));
                     i++;
                 }
                 else
                 {
-                    res.AddTerm(new Term(p.list[j].Co, p.list[j].Exp,p.VariableName));
+                    res.AddTerm(new Term(p.list[j].Co, p.list[j].Exp, VariableName));
                     j++;
                 }
+
+
             }
             //this = res;
             this.list = res.list;
@@ -154,7 +155,7 @@ namespace ProgrammingBasics_DS
         {
             Poly p1 = new Poly(),
                 p2 = new Poly();
-            p1.AddTerm(new Term(1, 6,"XY"));//
+           // p1.AddTerm(new Term(1, 6,"XY"));//
             p1.AddTerm(5, 5);
             p1.AddTerm(4, 4);
             p1.AddTerm(-1, 1);
@@ -165,9 +166,9 @@ namespace ProgrammingBasics_DS
             p2.AddTerm(5, 5);
             p2.AddTerm(4, 4);
             p2.AddTerm(-1, 1);
-            p2.AddTerm(5);
+            //p2.AddTerm(5);
             Console.WriteLine("P2 : default\n"+p2);
-            p2.VariableName = "XY";
+            //p2.VariableName = "XY";
             p2.Add2Me(p1);
             Console.WriteLine("P2 : After :\n"+ p2);
 
