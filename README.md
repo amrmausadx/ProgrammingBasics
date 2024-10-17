@@ -1,5 +1,5 @@
 # ProgrammingBasics
-كل اكواد المواد الاساسية للبرمجة
+كل اكواد المواد الاساسية للبرمجة C#
 
  * Educational Code
  * Dr. Amr Mausad @ 2024
